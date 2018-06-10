@@ -5,7 +5,7 @@ module.exports = {
   // Configuración para resolver los alias declarados en webpack.config.js
   settings: {
     'import/resolver': {
-      webpack: path.join(__dirname, 'webpack.config.js'),
+      webpack: path.join(__dirname, 'build/webpack.dev.conf.js'),
       node: {
         paths: ['src']
       }
