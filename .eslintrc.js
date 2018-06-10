@@ -36,6 +36,7 @@ module.exports = {
         'error', 120, 2
       ],
     'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
+    'linebreak-style': [2, 'windows'],
     'object-property-newline': 'error',
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
