@@ -5,13 +5,26 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+const fb = require('./firebaseConfig');
+
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App },
-  template: '<App/>',
+let app;
+fb.auth.onAuthStateChanged(user => {
+  if (!app) {
+    app = new Vue({
+      el: '#app',
+      router,
+      store,
+      render: h => h(App),
+    });
+  }
 });
+// /* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   router,
+//   store,
+//   components: { App },
+//   template: '<App/>',
+// });
