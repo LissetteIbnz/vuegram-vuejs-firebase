@@ -25,7 +25,7 @@ const router = new Router({
       name: 'Dashboard',
       component: Dashboard,
       meta: {
-        requiresAuth: true,
+        requiresAuth: true, // Permite autenticar cada ruta
       },
     },
     {
@@ -39,10 +39,19 @@ const router = new Router({
   ],
 });
 
+// Compruebe si la ruta existe y requiere autenticación.
+// Luego crea una referencia al usuario actual y autentica las rutas.
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
   const currentUser = firebase.auth().currentUser;
-
+  /**
+   * Si la ruta tiene la meta propiedad requiresAuth establecida en true y el usuario no ha iniciado sesión,
+   * la ruta será redirigida a la vista de inicio de sesión.
+   * Si la ruta tiene requiresAuth establecida en true y el usuario ha iniciado sesión,
+   * envíela a la ruta que intente visitar.
+   * Porque else, simplemente los envías a cualquier ruta que intenten visitar;
+   * esto solo se activa si la ruta no requiere autenticación.
+   */
   if (requiresAuth && !currentUser) {
     next('/login');
   } else if (requiresAuth && currentUser) {

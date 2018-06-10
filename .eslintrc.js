@@ -6,7 +6,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'build/webpack.dev.conf.js'
+        config: path.join(__dirname, 'build/webpack.base.conf.js'),
       },      
     },
   },

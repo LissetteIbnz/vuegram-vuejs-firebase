@@ -1,2 +1,3 @@
-./build/**/*
-./config/**/*
+build/**/*
+config/**/*
+dist/**/*
