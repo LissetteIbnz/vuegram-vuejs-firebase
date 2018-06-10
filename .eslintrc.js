@@ -5,11 +5,10 @@ module.exports = {
   // Configuración para resolver los alias declarados en webpack.config.js
   settings: {
     'import/resolver': {
-      webpack: path.join(__dirname, 'build/webpack.dev.conf.js'),
-      node: {
-        paths: ['src']
-      }
-    }
+      webpack: {
+        config: 'build/webpack.dev.conf.js'
+      },      
+    },
   },
   parser: 'vue-eslint-parser',
   'parserOptions': {
