@@ -2,6 +2,8 @@
 
 Un proyecto construido sobre Vue, Typescript y Firebase.
 
+https://savvyapps.com/blog/definitive-guide-building-web-app-vuejs-firebase
+
 ## Construir el proyecto
 
 ### Paso 1: inicializa tu proyecto con Vue CLI
